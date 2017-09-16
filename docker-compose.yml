@@ -5,8 +5,8 @@ services:
     build: .
     restart: always
     network_mode: bridge
-    # volumes:
-    #   - /var/data/direitotec/blog:/var/lib/ghost/content
+    volumes:
+      - /var/data/direitotec/blog:/var/lib/ghost/content
     ports:
       - 23681:2368
     environment:
