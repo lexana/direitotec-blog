@@ -1,0 +1,24 @@
+version: '2'
+services:
+  ghost:
+    image: ghost
+    build: .
+    restart: always
+    network_mode: bridge
+    # volumes:
+    #   - /var/data/direitotec/blog:/var/lib/ghost/content
+    ports:
+      - 23681:2368
+    environment:
+      - url=http://www.direitotec.com.br
+      - NODE_ENV=production
+
+  flyio:
+    image: flyio/wormhole:0.5.31
+    restart: always
+    network_mode: bridge
+    environment:
+      - FLY_TOKEN=5044d5258cbb5b4529a1fe9e24e44593774b065744b28c01d652296831b19cfd
+      - FLY_LOCAL_ENDPOINT=ghost:2368
+    links:
+      - ghost:ghost
