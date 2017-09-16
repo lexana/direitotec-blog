@@ -1,9 +1,8 @@
 version: '2'
 services:
-  
+
   ghost:
     image: ghost
-    build: .
     restart: always
     network_mode: bridge
     volumes:
@@ -11,7 +10,7 @@ services:
     ports:
       - 23681:2368
     environment:
-      - url=http://www.direitotec.com.br
+      - url=http://www.direitotec.com.br/
       - NODE_ENV=production
 
   flyio:
